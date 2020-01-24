@@ -1,18 +1,18 @@
 ﻿using System.Activities;
 using System.ComponentModel;
+using NErlichman.Framework.Controller;
 
 namespace NErlichman.Framework.Activities
 {
-    [DisplayName("Reset InitRetryNumber")]
-    [Description("Reset InitRetryNumber")]
-    public class ResetInitRetryNumber : NativeActivity
+    [DisplayName("Increment TransactionNumber")]
+    [Description("Increment TransactionNumber")]
+    public class IncrementTransactionNumber : NativeActivity
     {
         #region Properties
 
         [Category("Target")]
-        [DisplayName("SystemReserved")]
         [RequiredArgument]
-        public InOutArgument<SystemReserved> SysRes { get; set; }
+        public InOutArgument<SystemReserved> SystemReserved { get; set; }
 
         #endregion
 
@@ -27,11 +27,11 @@ namespace NErlichman.Framework.Activities
         /// <returns></returns>
         protected override void Execute(NativeActivityContext context)
         {
-            var sysRes = SysRes.Get(context);
+            var sysRes = SystemReserved.Get(context);
 
-            sysRes.InitRetryNumber = 0;
+            sysRes.TransactionNumber += 1;
 
-            SysRes.Set(context, sysRes);
+            SystemReserved.Set(context, sysRes);
 
         }
 

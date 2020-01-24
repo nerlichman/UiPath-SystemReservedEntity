@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using System.Windows.Markup;
+using NErlichman.Framework.Controller;
 
 namespace NErlichman.Framework.Activities
 {
@@ -20,19 +21,19 @@ namespace NErlichman.Framework.Activities
 
         [DefaultValue("Data\\Input")]
         [Category("Optional Fields")]
-        public InArgument<System.String> InputFolder { get; set; }
+        public InArgument<String> InputFolder { get; set; }
         [DefaultValue("Data\\Output")]
         [Category("Optional Fields")]
-        public InArgument<System.String> OutputFolder { get; set; }
+        public InArgument<String> OutputFolder { get; set; }
         [DefaultValue("Data\\Temp")]
         [Category("Optional Fields")]
-        public InArgument<System.String> TempFolder { get; set; }
+        public InArgument<String> TempFolder { get; set; }
         [DefaultValue("Data\\Reports")]
         [Category("Optional Fields")]
-        public InArgument<System.String> ReportsFolder { get; set; }
+        public InArgument<String> ReportsFolder { get; set; }
         [DefaultValue("Exceptions_Screenshots")]
         [Category("Optional Fields")]
-        public InArgument<System.String> ExScreenshotsFolder { get; set; }
+        public InArgument<String> ExScreenshotsFolder { get; set; }
 
         #endregion
 
@@ -45,48 +46,48 @@ namespace NErlichman.Framework.Activities
 
     [DisplayName("Build SystemReserved")]
     [Description("Build SystemReserved")]
-    public sealed class BuildSystemReserved : CodeActivity<SystemReserved>
+    [Designer(typeof(Design.BuildSystemReservedDesigner))]
+    public sealed class BuildSystemReserved : CodeActivity
     {
         #region Properties
 
         [RequiredArgument]
         [Category("Required Fields")]
-        public InArgument<System.Int32> TransactionNumber { get; set; }
+        public InArgument<Int32> TransactionNumber { get; set; }
         [RequiredArgument]
         [Category("Required Fields")]
-        public InArgument<System.Int32> RetryNumber { get; set; }
+        public InArgument<Int32> RetryNumber { get; set; }
         [RequiredArgument]
         [Category("Required Fields")]
-        public InArgument<System.Int32> InitRetryNumber { get; set; }
+        public InArgument<Int32> InitRetryNumber { get; set; }
         [RequiredArgument]
         [Category("Required Fields")]
-        public InArgument<System.Int32> ContinuousRetryNumber { get; set; }
+        public InArgument<Int32> ContinuousRetryNumber { get; set; }
         [RequiredArgument]
         [Category("Required Fields")]
-        public InArgument<System.Boolean> IsQueueItem { get; set; }
+        public InArgument<Boolean> IsQueueItem { get; set; }
         [DefaultValue(null)]
         [Category("Optional Fields")]
-        public InArgument<System.String> RobotFail { get; set; }
+        public InArgument<String> RobotFail { get; set; }
         [DefaultValue(null)]
         [Category("Optional Fields")]
         public InArgument<FrameworkFolders> Folders { get; set; }
         [DefaultValue(null)]
         [Category("Optional Fields")]
         public InArgument<Dictionary<String, Object>> CustomParams { get; set; }
+        [RequiredArgument]
+        [Category("Output")]
+        public OutArgument<SystemReserved> SystemReserved { get; set; }
 
         #endregion
 
-        protected override SystemReserved Execute(CodeActivityContext context)
+        protected override void Execute(CodeActivityContext context)
         {
-            return new SystemReserved(TransactionNumber.Get(context), RetryNumber.Get(context), InitRetryNumber.Get(context), ContinuousRetryNumber.Get(context), Folders.Get(context) ?? new FrameworkFolders(), IsQueueItem.Get(context), RobotFail.Get(context), CustomParams.Get(context) ?? new Dictionary<String, Object>());
+            SystemReserved.Set(context,new SystemReserved(TransactionNumber.Get(context), RetryNumber.Get(context), InitRetryNumber.Get(context), ContinuousRetryNumber.Get(context), Folders.Get(context) ?? new FrameworkFolders(), IsQueueItem.Get(context), RobotFail.Get(context), CustomParams.Get(context) ?? new Dictionary<String, Object>()));
         }
 
     }
 
-    public class RegisterMetadata : IRegisterMetadata
-    {
-        public void Register() { }
-    }
 
 
 }

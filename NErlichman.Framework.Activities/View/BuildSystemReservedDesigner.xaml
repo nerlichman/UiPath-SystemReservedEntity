@@ -1,0 +1,65 @@
+﻿<sap:ActivityDesigner x:Class="NErlichman.Framework.Design.BuildSystemReservedDesigner"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+    xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  >
+    <sap:ActivityDesigner.Resources>
+        <!--<ResourceDictionary>
+            <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
+        </ResourceDictionary>-->
+        <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
+        <DataTemplate x:Key="Collapsed">
+            <StackPanel >
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Run Text="Double-click to view"/>
+                </TextBlock>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Expanded">
+            <StackPanel Width="300">
+                <sapv:ExpressionTextBox
+                      HintText="TransactionNumber"
+                      Expression="{Binding ModelItem.TransactionNumber, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                      OwnerActivity="{Binding ModelItem}"
+                      ExpressionType="{x:Type s:Int32}"/>
+                <sapv:ExpressionTextBox
+                      HintText="RetryNumber"
+                      Expression="{Binding ModelItem.RetryNumber, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                      OwnerActivity="{Binding ModelItem}"
+                      ExpressionType="{x:Type s:Int32}"/>
+                <sapv:ExpressionTextBox
+                      HintText="InitRetryNumber"
+                      Expression="{Binding ModelItem.InitRetryNumber, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                      OwnerActivity="{Binding ModelItem}"
+                      ExpressionType="{x:Type s:Int32}"/>
+                <sapv:ExpressionTextBox
+                      HintText="ContinuousRetryNumber"
+                      Expression="{Binding ModelItem.ContinuousRetryNumber, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                      OwnerActivity="{Binding ModelItem}"
+                      ExpressionType="{x:Type s:Int32}"/>
+                <sapv:ExpressionTextBox
+                      HintText="IsQueueItem"
+                      Expression="{Binding ModelItem.IsQueueItem, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                      OwnerActivity="{Binding ModelItem}"
+                      ExpressionType="{x:Type s:Boolean}"/>
+            </StackPanel>
+        </DataTemplate>
+        <Style x:Key="ExpandOrCollapsedStyle"
+               TargetType="{x:Type ContentPresenter}">
+            <Setter Property="ContentTemplate"
+                    Value="{DynamicResource Collapsed}"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ShowExpanded}" Value="true">
+                    <Setter Property="ContentTemplate" Value="{DynamicResource Expanded}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </sap:ActivityDesigner.Resources>
+    <Grid>
+        <ContentPresenter Style="{DynamicResource ExpandOrCollapsedStyle}" Content="{Binding}" />
+    </Grid>
+</sap:ActivityDesigner>
