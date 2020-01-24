@@ -1,17 +1,19 @@
 ﻿using System.Activities;
 using System.ComponentModel;
+using NErlichman.Framework.Controller;
 
 namespace NErlichman.Framework.Activities
 {
-    [DisplayName("Increment ContinuousRetryNumber")]
-    [Description("Increment ContinuousRetryNumber")]
-    public class IncrementContinuousRetryNumber : NativeActivity
+    [DisplayName("Reset InitRetryNumber")]
+    [Description("Reset InitRetryNumber")]
+    public class ResetInitRetryNumber : NativeActivity
     {
         #region Properties
 
         [Category("Target")]
+        [DisplayName("SystemReserved")]
         [RequiredArgument]
-        public InOutArgument<SystemReserved> SystemReserved { get; set; }
+        public InOutArgument<SystemReserved> SysRes { get; set; }
 
         #endregion
 
@@ -26,11 +28,11 @@ namespace NErlichman.Framework.Activities
         /// <returns></returns>
         protected override void Execute(NativeActivityContext context)
         {
-            var sysRes = SystemReserved.Get(context);
+            var sysRes = SysRes.Get(context);
 
-            sysRes.ContinuousRetryNumber += 1;
+            sysRes.InitRetryNumber = 0;
 
-            SystemReserved.Set(context, sysRes);
+            SysRes.Set(context, sysRes);
 
         }
 

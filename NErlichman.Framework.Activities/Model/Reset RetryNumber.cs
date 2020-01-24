@@ -1,11 +1,12 @@
 ﻿using System.Activities;
 using System.ComponentModel;
+using NErlichman.Framework.Controller;
 
 namespace NErlichman.Framework.Activities
 {
-    [DisplayName("Increment RetryNumber")]
-    [Description("Increment RetryNumber")]
-    public class IncrementRetryNumber : NativeActivity
+    [DisplayName("Reset RetryNumber")]
+    [Description("Reset RetryNumber")]
+    public class ResetRetryNumber : NativeActivity
     {
         #region Properties
 
@@ -28,7 +29,7 @@ namespace NErlichman.Framework.Activities
         {
             var sysRes = SystemReserved.Get(context);
 
-            sysRes.RetryNumber += 1;
+            sysRes.RetryNumber = 0;
 
             SystemReserved.Set(context, sysRes);
 

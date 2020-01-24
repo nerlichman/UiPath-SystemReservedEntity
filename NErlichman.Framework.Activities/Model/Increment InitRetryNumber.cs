@@ -1,11 +1,12 @@
 ﻿using System.Activities;
 using System.ComponentModel;
+using NErlichman.Framework.Controller;
 
 namespace NErlichman.Framework.Activities
 {
-    [DisplayName("Increment TransactionNumber")]
-    [Description("Increment TransactionNumber")]
-    public class IncrementTransactionNumber : NativeActivity
+    [DisplayName("Increment InitRetryNumber")]
+    [Description("Increment InitRetryNumber")]
+    public class IncrementInitRetryNumber : NativeActivity
     {
         #region Properties
 
@@ -28,7 +29,7 @@ namespace NErlichman.Framework.Activities
         {
             var sysRes = SystemReserved.Get(context);
 
-            sysRes.TransactionNumber += 1;
+            sysRes.InitRetryNumber += 1;
 
             SystemReserved.Set(context, sysRes);
 
