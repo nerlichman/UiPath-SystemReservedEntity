@@ -64,6 +64,12 @@
     <Compile Include="Model\Reset InitRetryNumber.cs" />
     <Compile Include="Model\Reset RetryNumber.cs" />
     <Compile Include="Controller\SystemReserved.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="View\BuildFrameworkFoldersDesigner.xaml.cs">
+      <DependentUpon>BuildFrameworkFoldersDesigner.xaml</DependentUpon>
+    </Compile>
+>>>>>>> Stashed changes
     <Compile Include="View\BuildSystemReservedDesigner.xaml.cs">
       <DependentUpon>BuildSystemReservedDesigner.xaml</DependentUpon>
     </Compile>
@@ -73,6 +79,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+    <Page Include="View\BuildFrameworkFoldersDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+>>>>>>> Stashed changes
     <Page Include="View\BuildSystemReservedDesigner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
