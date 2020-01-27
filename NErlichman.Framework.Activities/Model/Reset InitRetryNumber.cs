@@ -6,6 +6,7 @@ namespace NErlichman.Framework.Activities
 {
     [DisplayName("Reset InitRetryNumber")]
     [Description("Reset InitRetryNumber")]
+    [Designer(typeof(Design.SystemResevedInputDesigner))]
     public class ResetInitRetryNumber : NativeActivity
     {
         #region Properties
@@ -13,7 +14,7 @@ namespace NErlichman.Framework.Activities
         [Category("Target")]
         [DisplayName("SystemReserved")]
         [RequiredArgument]
-        public InOutArgument<SystemReserved> SysRes { get; set; }
+        public InOutArgument<SystemReserved> SystemReserved { get; set; }
 
         #endregion
 
@@ -28,11 +29,11 @@ namespace NErlichman.Framework.Activities
         /// <returns></returns>
         protected override void Execute(NativeActivityContext context)
         {
-            var sysRes = SysRes.Get(context);
+            var sysRes = SystemReserved.Get(context);
 
             sysRes.InitRetryNumber = 0;
 
-            SysRes.Set(context, sysRes);
+            SystemReserved.Set(context, sysRes);
 
         }
 

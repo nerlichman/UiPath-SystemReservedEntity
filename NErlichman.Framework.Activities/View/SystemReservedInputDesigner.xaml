@@ -1,0 +1,48 @@
+﻿<sap:ActivityDesigner x:Class="NErlichman.Framework.Design.SystemResevedInputDesigner"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+    xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+    xmlns:z="clr-namespace:NErlichman.Framework.Controller"           >
+    <sap:ActivityDesigner.Resources>
+        <!--<ResourceDictionary>
+            <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
+        </ResourceDictionary>-->
+        <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
+        <DataTemplate x:Key="Collapsed">
+            <StackPanel >
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Run Text="Double-click to view" TextOptions.TextHintingMode="Fixed"/>
+                </TextBlock>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="Expanded">
+            <StackPanel Width="300">
+                <sapv:ExpressionTextBox
+                      HintText="SystemReserved"
+                      Expression="{Binding ModelItem.SystemReserved, ConverterParameter=InOut , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                      OwnerActivity="{Binding ModelItem}"
+                      ExpressionType="{x:Type z:SystemReserved}"
+                      UseLocationExpression="true"/>
+                
+            </StackPanel>
+        </DataTemplate>
+        <Style x:Key="ExpandOrCollapsedStyle"
+               TargetType="{x:Type ContentPresenter}">
+            <Setter Property="ContentTemplate"
+                    Value="{DynamicResource Collapsed}"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ShowExpanded}" Value="true">
+                    <Setter Property="ContentTemplate" Value="{DynamicResource Expanded}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </sap:ActivityDesigner.Resources>
+    <Grid>
+        <ContentPresenter Style="{DynamicResource ExpandOrCollapsedStyle}" Content="{Binding}" />
+    </Grid>
+</sap:ActivityDesigner>

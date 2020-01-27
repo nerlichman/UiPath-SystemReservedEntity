@@ -6,6 +6,7 @@ namespace NErlichman.Framework.Activities
 {
     [DisplayName("Reset RetryNumber")]
     [Description("Reset RetryNumber")]
+    [Designer(typeof(Design.SystemResevedInputDesigner))]
     public class ResetRetryNumber : NativeActivity
     {
         #region Properties

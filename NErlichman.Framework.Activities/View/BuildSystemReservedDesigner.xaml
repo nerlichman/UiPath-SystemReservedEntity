@@ -15,7 +15,7 @@
         <DataTemplate x:Key="Collapsed">
             <StackPanel >
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Run Text="Double-click to view"/>
+                    <Run Text="Double-click to view" TextOptions.TextHintingMode="Auto" />
                 </TextBlock>
             </StackPanel>
         </DataTemplate>
@@ -25,47 +25,27 @@
                       HintText="TransactionNumber"
                       Expression="{Binding ModelItem.TransactionNumber, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
-<<<<<<< Updated upstream
-                      ExpressionType="{x:Type s:Int32}"/>
-=======
                       ExpressionType="{x:Type s:Int32}" Margin="5"/>
->>>>>>> Stashed changes
                 <sapv:ExpressionTextBox
                       HintText="RetryNumber"
                       Expression="{Binding ModelItem.RetryNumber, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
-<<<<<<< Updated upstream
-                      ExpressionType="{x:Type s:Int32}"/>
-=======
                       ExpressionType="{x:Type s:Int32}" Margin="5"/>
->>>>>>> Stashed changes
                 <sapv:ExpressionTextBox
                       HintText="InitRetryNumber"
                       Expression="{Binding ModelItem.InitRetryNumber, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
-<<<<<<< Updated upstream
-                      ExpressionType="{x:Type s:Int32}"/>
-=======
                       ExpressionType="{x:Type s:Int32}" Margin="5"/>
->>>>>>> Stashed changes
                 <sapv:ExpressionTextBox
                       HintText="ContinuousRetryNumber"
                       Expression="{Binding ModelItem.ContinuousRetryNumber, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
-<<<<<<< Updated upstream
-                      ExpressionType="{x:Type s:Int32}"/>
-=======
                       ExpressionType="{x:Type s:Int32}" Margin="5"/>
->>>>>>> Stashed changes
                 <sapv:ExpressionTextBox
                       HintText="IsQueueItem"
                       Expression="{Binding ModelItem.IsQueueItem, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
-<<<<<<< Updated upstream
-                      ExpressionType="{x:Type s:Boolean}"/>
-=======
                       ExpressionType="{x:Type s:Boolean}" Margin="5"/>
->>>>>>> Stashed changes
             </StackPanel>
         </DataTemplate>
         <Style x:Key="ExpandOrCollapsedStyle"

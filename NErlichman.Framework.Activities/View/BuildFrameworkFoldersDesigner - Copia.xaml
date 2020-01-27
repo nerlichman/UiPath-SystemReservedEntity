@@ -15,7 +15,7 @@
         <DataTemplate x:Key="Collapsed">
             <StackPanel >
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Run Text="Double-click to view"/>
+                    <Run Text="Double-click to view" TextOptions.TextHintingMode="Animated"/>
                 </TextBlock>
             </StackPanel>
         </DataTemplate>

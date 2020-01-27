@@ -6,6 +6,7 @@ namespace NErlichman.Framework.Activities
 {
     [DisplayName("Increment ContinuousRetryNumber")]
     [Description("Increment ContinuousRetryNumber")]
+    [Designer(typeof(Design.SystemResevedInputDesigner))]
     public class IncrementContinuousRetryNumber : NativeActivity
     {
         #region Properties
