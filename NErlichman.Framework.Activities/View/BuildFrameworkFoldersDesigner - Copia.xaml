@@ -1,4 +1,4 @@
-﻿<sap:ActivityDesigner x:Class="NErlichman.Framework.Design.BuildSystemReservedDesigner"
+﻿<sap:ActivityDesigner x:Class="NErlichman.Framework.Design.BuildFrameworkFoldersDesigner"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
@@ -15,37 +15,37 @@
         <DataTemplate x:Key="Collapsed">
             <StackPanel >
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Run Text="Double-click to view" TextOptions.TextHintingMode="Auto" />
+                    <Run Text="Double-click to view" TextOptions.TextHintingMode="Animated"/>
                 </TextBlock>
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="Expanded">
             <StackPanel Width="300">
                 <sapv:ExpressionTextBox
-                      HintText="TransactionNumber"
-                      Expression="{Binding ModelItem.TransactionNumber, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                      HintText="Input Folder"
+                      Expression="{Binding ModelItem.InputFolder, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
-                      ExpressionType="{x:Type s:Int32}" Margin="5"/>
+                      ExpressionType="{x:Type s:String}" Margin="5"/>
                 <sapv:ExpressionTextBox
-                      HintText="RetryNumber"
-                      Expression="{Binding ModelItem.RetryNumber, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                      HintText="Output Folder"
+                      Expression="{Binding ModelItem.OutputFolder, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
-                      ExpressionType="{x:Type s:Int32}" Margin="5"/>
+                      ExpressionType="{x:Type s:String}" Margin="5"/>
                 <sapv:ExpressionTextBox
-                      HintText="InitRetryNumber"
-                      Expression="{Binding ModelItem.InitRetryNumber, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                      HintText="Temp Folder"
+                      Expression="{Binding ModelItem.TempFolder, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
-                      ExpressionType="{x:Type s:Int32}" Margin="5"/>
+                      ExpressionType="{x:Type s:String}" Margin="5"/>
                 <sapv:ExpressionTextBox
-                      HintText="ContinuousRetryNumber"
-                      Expression="{Binding ModelItem.ContinuousRetryNumber, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                      HintText="Reports Folder"
+                      Expression="{Binding ModelItem.ReportsFolder, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
-                      ExpressionType="{x:Type s:Int32}" Margin="5"/>
+                      ExpressionType="{x:Type s:String}" Margin="5"/>
                 <sapv:ExpressionTextBox
-                      HintText="IsQueueItem"
-                      Expression="{Binding ModelItem.IsQueueItem, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                      HintText="Ex Screenshots Folder"
+                      Expression="{Binding ModelItem.ExScreenshotsFolder, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
-                      ExpressionType="{x:Type s:Boolean}" Margin="5"/>
+                      ExpressionType="{x:Type s:String}" Margin="5"/>
             </StackPanel>
         </DataTemplate>
         <Style x:Key="ExpandOrCollapsedStyle"

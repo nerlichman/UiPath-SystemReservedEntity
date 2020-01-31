@@ -9,11 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NErlichman.Framework.Activities</RootNamespace>
     <AssemblyName>NErlichman.Framework.Activities</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>false</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -64,6 +65,12 @@
     <Compile Include="Model\Reset InitRetryNumber.cs" />
     <Compile Include="Model\Reset RetryNumber.cs" />
     <Compile Include="Controller\SystemReserved.cs" />
+    <Compile Include="View\BuildFrameworkFoldersDesigner - Copia.xaml.cs">
+      <DependentUpon>BuildFrameworkFoldersDesigner - Copia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SystemReservedInputDesigner.xaml.cs">
+      <DependentUpon>SystemReservedInputDesigner.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\BuildSystemReservedDesigner.xaml.cs">
       <DependentUpon>BuildSystemReservedDesigner.xaml</DependentUpon>
     </Compile>
@@ -73,6 +80,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="View\BuildFrameworkFoldersDesigner - Copia.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SystemReservedInputDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\BuildSystemReservedDesigner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

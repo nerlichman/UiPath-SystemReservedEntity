@@ -15,6 +15,7 @@ namespace NErlichman.Framework.Activities
 {
     [DisplayName("Build Framework Folders")]
     [Description("Build Framework Folders")]
+    [Designer(typeof(Design.BuildFrameworkFoldersDesigner))]
     public sealed class BuildFrameworkFolders : CodeActivity<FrameworkFolders>
     {
         #region Properties

@@ -6,6 +6,7 @@ namespace NErlichman.Framework.Activities
 {
     [DisplayName("Increment TransactionNumber")]
     [Description("Increment TransactionNumber")]
+    [Designer(typeof(Design.SystemResevedInputDesigner))]
     public class IncrementTransactionNumber : NativeActivity
     {
         #region Properties
