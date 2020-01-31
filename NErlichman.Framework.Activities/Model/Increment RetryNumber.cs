@@ -28,12 +28,7 @@ namespace NErlichman.Framework.Activities
         /// <returns></returns>
         protected override void Execute(NativeActivityContext context)
         {
-            var sysRes = SystemReserved.Get(context);
-
-            sysRes.RetryNumber += 1;
-
-            SystemReserved.Set(context, sysRes);
-
+            SystemReserved.Get(context).RetryNumber += 1;
         }
 
         #endregion

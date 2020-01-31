@@ -65,8 +65,8 @@
     <Compile Include="Model\Reset InitRetryNumber.cs" />
     <Compile Include="Model\Reset RetryNumber.cs" />
     <Compile Include="Controller\SystemReserved.cs" />
-    <Compile Include="View\BuildFrameworkFoldersDesigner - Copia.xaml.cs">
-      <DependentUpon>BuildFrameworkFoldersDesigner - Copia.xaml</DependentUpon>
+    <Compile Include="View\BuildFrameworkFoldersDesigner.xaml.cs">
+      <DependentUpon>BuildFrameworkFoldersDesigner.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SystemReservedInputDesigner.xaml.cs">
       <DependentUpon>SystemReservedInputDesigner.xaml</DependentUpon>
@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Page Include="View\BuildFrameworkFoldersDesigner - Copia.xaml">
+    <Page Include="View\BuildFrameworkFoldersDesigner.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

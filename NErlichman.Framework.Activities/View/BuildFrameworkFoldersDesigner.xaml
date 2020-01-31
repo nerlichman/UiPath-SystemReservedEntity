@@ -12,40 +12,60 @@
             <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
         </ResourceDictionary>-->
         <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
-        <DataTemplate x:Key="Collapsed">
+        <DataTemplate x:Key="Expanded">
             <StackPanel >
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Run Text="Double-click to view" TextOptions.TextHintingMode="Animated"/>
-                </TextBlock>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" Foreground="#FF6D6D6D">Double-click to view</TextBlock>
             </StackPanel>
         </DataTemplate>
-        <DataTemplate x:Key="Expanded">
+        <DataTemplate x:Key="Collapsed">
             <StackPanel Width="300">
-                <sapv:ExpressionTextBox
-                      HintText="Input Folder"
+                <Grid >
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center">Input Folder</TextBlock>
+                    <sapv:ExpressionTextBox
+                      HintText="Enter a VB expression"
                       Expression="{Binding ModelItem.InputFolder, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
                       ExpressionType="{x:Type s:String}" Margin="5"/>
-                <sapv:ExpressionTextBox
-                      HintText="Output Folder"
+                </Grid>
+                <Grid >
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center">Output Folder</TextBlock>
+                    <sapv:ExpressionTextBox
+                      HintText="Enter a VB expression"
                       Expression="{Binding ModelItem.OutputFolder, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
                       ExpressionType="{x:Type s:String}" Margin="5"/>
-                <sapv:ExpressionTextBox
-                      HintText="Temp Folder"
+                </Grid>
+                <Grid >
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center">Temp Folder</TextBlock>
+                    <sapv:ExpressionTextBox
+                      HintText="Enter a VB expression"
                       Expression="{Binding ModelItem.TempFolder, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
                       ExpressionType="{x:Type s:String}" Margin="5"/>
-                <sapv:ExpressionTextBox
-                      HintText="Reports Folder"
+                </Grid>
+                <Grid >
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center">Reports Folder</TextBlock>
+                    <sapv:ExpressionTextBox
+                      HintText="Enter a VB expression"
                       Expression="{Binding ModelItem.ReportsFolder, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
                       OwnerActivity="{Binding ModelItem}"
                       ExpressionType="{x:Type s:String}" Margin="5"/>
-                <sapv:ExpressionTextBox
-                      HintText="Ex Screenshots Folder"
-                      Expression="{Binding ModelItem.ExScreenshotsFolder, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
-                      OwnerActivity="{Binding ModelItem}"
-                      ExpressionType="{x:Type s:String}" Margin="5"/>
+                </Grid>
+                <Grid Margin ="5">
+                    <Grid HorizontalAlignment="Left">
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="ExScreenshots Folder"/>
+                    </Grid>
+                    <Grid HorizontalAlignment="Right">
+                        <sapv:ExpressionTextBox
+                            HorizontalAlignment="Left"
+                            MinWidth="170"
+                            HintText="Enter a VB expression"
+                            Expression="{Binding ModelItem.ExScreenshotsFolder, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                            OwnerActivity="{Binding ModelItem}"
+                            ExpressionType="{x:Type s:String}"/>
+                    </Grid>
+                </Grid>
+                
             </StackPanel>
         </DataTemplate>
         <Style x:Key="ExpandOrCollapsedStyle"

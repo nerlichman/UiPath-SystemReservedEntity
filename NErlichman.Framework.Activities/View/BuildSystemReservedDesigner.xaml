@@ -1,5 +1,5 @@
 ﻿<sap:ActivityDesigner x:Class="NErlichman.Framework.Design.BuildSystemReservedDesigner"
-     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
     xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
@@ -14,9 +14,7 @@
         <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
         <DataTemplate x:Key="Collapsed">
             <StackPanel >
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Run Text="Double-click to view" TextOptions.TextHintingMode="Auto" />
-                </TextBlock>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" Foreground="#FF6D6D6D">Double-click to view</TextBlock>
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="Expanded">

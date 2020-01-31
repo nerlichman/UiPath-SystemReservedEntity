@@ -92,6 +92,5 @@ namespace NErlichman.Framework.Controller
             this.RobotFail = RobotFail;
             this.CustomParams = CustomParams;
         }
-
     }
 }
