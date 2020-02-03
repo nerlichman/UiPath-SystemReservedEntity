@@ -13,38 +13,71 @@
         </ResourceDictionary>-->
         <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
         <DataTemplate x:Key="Collapsed">
-            <StackPanel >
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" Foreground="#FF6D6D6D">Double-click to view</TextBlock>
-            </StackPanel>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" Foreground="#FF6D6D6D">Double-click to view</TextBlock>
         </DataTemplate>
         <DataTemplate x:Key="Expanded">
-            <StackPanel Width="300">
+            <Grid Width="300">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Center" >TransactionNumber</TextBlock>
                 <sapv:ExpressionTextBox
-                      HintText="TransactionNumber"
-                      Expression="{Binding ModelItem.TransactionNumber, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
-                      OwnerActivity="{Binding ModelItem}"
-                      ExpressionType="{x:Type s:Int32}" Margin="5"/>
+                    Grid.Column="1"
+                    HintText="Enter a VB expression"
+                    Height="25"
+                    Expression="{Binding ModelItem.TransactionNumber, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:Int32}" 
+                    Margin="5"/>
+                <TextBlock VerticalAlignment="Center" Grid.Row="1">RetryNumber</TextBlock>
                 <sapv:ExpressionTextBox
-                      HintText="RetryNumber"
-                      Expression="{Binding ModelItem.RetryNumber, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
-                      OwnerActivity="{Binding ModelItem}"
-                      ExpressionType="{x:Type s:Int32}" Margin="5"/>
+                    HintText="Enter a VB expression"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Height="25"
+                    Expression="{Binding ModelItem.RetryNumber, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:Int32}" 
+                    Margin="5"/>
+                <TextBlock VerticalAlignment="Center" Grid.Row="2">InitRetryNumber</TextBlock>
                 <sapv:ExpressionTextBox
-                      HintText="InitRetryNumber"
-                      Expression="{Binding ModelItem.InitRetryNumber, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
-                      OwnerActivity="{Binding ModelItem}"
-                      ExpressionType="{x:Type s:Int32}" Margin="5"/>
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    HintText="Enter a VB expression"
+                    Height="25"
+                    Expression="{Binding ModelItem.InitRetryNumber, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:Int32}" 
+                    Margin="5"/>
+                <TextBlock VerticalAlignment="Center" Grid.Row="3">ContinuousRetryNumber</TextBlock>
                 <sapv:ExpressionTextBox
-                      HintText="ContinuousRetryNumber"
-                      Expression="{Binding ModelItem.ContinuousRetryNumber, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
-                      OwnerActivity="{Binding ModelItem}"
-                      ExpressionType="{x:Type s:Int32}" Margin="5"/>
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    HintText="Enter a VB expression" 
+                    Height="25"
+                    Expression="{Binding ModelItem.ContinuousRetryNumber, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:Int32}" 
+                    Margin="5"/>
+                <TextBlock VerticalAlignment="Center" Grid.Row="4">IsQueueItem</TextBlock>
                 <sapv:ExpressionTextBox
-                      HintText="IsQueueItem"
-                      Expression="{Binding ModelItem.IsQueueItem, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
-                      OwnerActivity="{Binding ModelItem}"
-                      ExpressionType="{x:Type s:Boolean}" Margin="5"/>
-            </StackPanel>
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    HintText="Enter a VB expression"
+                    Height="25"
+                    Expression="{Binding ModelItem.IsQueueItem, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:Boolean}" 
+                    Margin="5"/>
+            </Grid>
         </DataTemplate>
         <Style x:Key="ExpandOrCollapsedStyle"
                TargetType="{x:Type ContentPresenter}">

@@ -14,25 +14,30 @@
         </ResourceDictionary>-->
         <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
         <DataTemplate x:Key="Collapsed">
-            <StackPanel >
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" Foreground="#FF6D6D6D">Double-click to view</TextBlock>
-            </StackPanel>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" Foreground="#FF6D6D6D">Double-click to view</TextBlock>
         </DataTemplate>
         <DataTemplate x:Key="Expanded">
-            <StackPanel Width="300">
+            <Grid Width="300">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock VerticalAlignment="Center">SystemReserved</TextBlock>
                 <sapv:ExpressionTextBox
-                      HintText="SystemReserved"
-                      Expression="{Binding ModelItem.SystemReserved, ConverterParameter=InOut , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
-                      OwnerActivity="{Binding ModelItem}"
-                      ExpressionType="{x:Type z:SystemReserved}"
-                      UseLocationExpression="true"/>
-                
-            </StackPanel>
+                    Grid.Column="1"
+                    Height="25"
+                    HintText="Enter a VB expression"
+                    Expression="{Binding ModelItem.SystemReserved, ConverterParameter=InOut , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type z:SystemReserved}"
+                    UseLocationExpression="true"
+                    Margin="5"/>
+            </Grid>
         </DataTemplate>
         <Style x:Key="ExpandOrCollapsedStyle"
                TargetType="{x:Type ContentPresenter}">
             <Setter Property="ContentTemplate"
-                    Value="{DynamicResource Collapsed}"/>
+                    Value="{DynamicResource Expanded}"/>
             <Style.Triggers>
                 <DataTrigger Binding="{Binding ShowExpanded}" Value="true">
                     <Setter Property="ContentTemplate" Value="{DynamicResource Expanded}"/>

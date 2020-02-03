@@ -19,11 +19,12 @@ namespace NErlichman.Framework.Controller
 
         public FrameworkFolders(String InputFolder, String OutputFolder, String TempFolder, String ReportsFolder, String ExScreenshotsFolder)
         {
-            Initialize(InputFolder, OutputFolder, TempFolder, ReportsFolder, ExScreenshotsFolder);
+            Initialize(InputFolder ?? this.InputFolder, OutputFolder ?? this.OutputFolder, TempFolder ?? this.TempFolder, ReportsFolder ?? this.ReportsFolder, ExScreenshotsFolder ?? this.ExScreenshotsFolder);
         }
 
         private void Initialize(String InputFolder, String OutputFolder, String TempFolder, String ReportsFolder, String ExScreenshotsFolder)
         {
+            
             this.InputFolder = InputFolder;
             this.OutputFolder = OutputFolder;
             this.TempFolder = TempFolder;

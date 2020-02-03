@@ -20,45 +20,56 @@ namespace NErlichman.Framework.Controller
 
         public SystemReserved(Dictionary<String, Object> CustomParams)
         {
-            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, IsQueueItem, RobotFail, CustomParams);
+            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, Folders.InputFolder, Folders.OutputFolder, Folders.TempFolder, Folders.ReportsFolder, Folders.ExScreenshotsFolder, IsQueueItem, RobotFail, CustomParams ?? this.CustomParams);
+
         }
 
         public SystemReserved(Boolean IsQueueItem)
         {
-            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, IsQueueItem, RobotFail, CustomParams);
+            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, Folders.InputFolder, Folders.OutputFolder, Folders.TempFolder, Folders.ReportsFolder, Folders.ExScreenshotsFolder,IsQueueItem, RobotFail, CustomParams);
         }
 
         public SystemReserved(Boolean IsQueueItem, Dictionary<String, Object> CustomParams)
         {
-            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, IsQueueItem, RobotFail, CustomParams);
+            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, Folders.InputFolder, Folders.OutputFolder, Folders.TempFolder, Folders.ReportsFolder, Folders.ExScreenshotsFolder, IsQueueItem, RobotFail, CustomParams??this.CustomParams);
         }
 
         public SystemReserved(Int32 TransactionNumber, Int32 RetryNumber, Int32 InitRetryNumber, Int32 ContinuousRetryNumber, String InputFolder, String OutputFolder, String TempFolder, String ReportsFolder, String ExScreenshotsFolder, Boolean IsQueueItem)
         {
-            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, InputFolder, OutputFolder, TempFolder, ReportsFolder, ExScreenshotsFolder, IsQueueItem, RobotFail, CustomParams);
+            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, InputFolder ?? Folders.InputFolder, OutputFolder ?? Folders.OutputFolder, TempFolder ?? Folders.TempFolder,
+                ReportsFolder ?? Folders.ReportsFolder, ExScreenshotsFolder ?? Folders.ExScreenshotsFolder, IsQueueItem, RobotFail, CustomParams);
+
         }
 
         public SystemReserved(Int32 TransactionNumber, Int32 RetryNumber, Int32 InitRetryNumber, Int32 ContinuousRetryNumber, String InputFolder, String OutputFolder, String TempFolder, String ReportsFolder, String ExScreenshotsFolder, Boolean IsQueueItem, Dictionary<String, Object> CustomParams)
         {
-            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, InputFolder, OutputFolder, TempFolder, ReportsFolder, ExScreenshotsFolder, IsQueueItem, RobotFail, CustomParams);
+            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, InputFolder ?? Folders.InputFolder, OutputFolder ?? Folders.OutputFolder, TempFolder ?? Folders.TempFolder,
+                    ReportsFolder ?? Folders.ReportsFolder, ExScreenshotsFolder ?? Folders.ExScreenshotsFolder, IsQueueItem, RobotFail, CustomParams ?? this.CustomParams);
         }
 
         public SystemReserved(Int32 TransactionNumber, Int32 RetryNumber, Int32 InitRetryNumber, Int32 ContinuousRetryNumber, Boolean IsQueueItem, String RobotFail, Dictionary<String, Object> CustomParams)
         {
-            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, IsQueueItem, RobotFail, CustomParams);
+            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, Folders.InputFolder, Folders.OutputFolder, Folders.TempFolder,
+                     Folders.ReportsFolder, Folders.ExScreenshotsFolder, IsQueueItem, RobotFail ?? this.RobotFail, CustomParams ?? this.CustomParams);
         }
 
         public SystemReserved(Int32 TransactionNumber, Int32 RetryNumber, Int32 InitRetryNumber, Int32 ContinuousRetryNumber, FrameworkFolders Folders, Boolean IsQueueItem, String RobotFail, Dictionary<String, Object> CustomParams)
         {
-            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, Folders, IsQueueItem, RobotFail, CustomParams);
+            if (Folders == null)
+            {
+                Folders = this.Folders;
+            }
+            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber,  Folders.InputFolder, Folders.OutputFolder, Folders.TempFolder,
+                     Folders.ReportsFolder,  Folders.ExScreenshotsFolder, IsQueueItem, RobotFail??this.RobotFail, CustomParams ?? this.CustomParams);
         }
 
         public SystemReserved(Int32 TransactionNumber, Int32 RetryNumber, Int32 InitRetryNumber, Int32 ContinuousRetryNumber, String InputFolder, String OutputFolder, String TempFolder, String ReportsFolder, String ExScreenshotsFolder, Boolean IsQueueItem, String RobotFail, Dictionary<String, Object> CustomParams)
         {
-            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, InputFolder, OutputFolder, TempFolder, ReportsFolder, ExScreenshotsFolder, IsQueueItem, RobotFail, CustomParams);
+            Initialize(TransactionNumber, RetryNumber, InitRetryNumber, ContinuousRetryNumber, InputFolder ?? Folders.InputFolder, OutputFolder ?? Folders.OutputFolder, TempFolder ?? Folders.TempFolder,
+                     ReportsFolder ?? Folders.ReportsFolder, ExScreenshotsFolder ?? Folders.ExScreenshotsFolder, IsQueueItem, RobotFail ?? this.RobotFail, CustomParams ?? this.CustomParams);
         }
 
-        private void Initialize(Int32 TransactionNumber, Int32 RetryNumber, Int32 InitRetryNumber, Int32 ContinuousRetryNumber, String InputFolder, String OutputFolder, String TempFolder, String ReportsFolder, String ExScreenshotsFolder, Boolean IsQueueItem, String RobotFail, Dictionary<String, Object> CustomParams)
+            private void Initialize(Int32 TransactionNumber, Int32 RetryNumber, Int32 InitRetryNumber, Int32 ContinuousRetryNumber, String InputFolder, String OutputFolder, String TempFolder, String ReportsFolder, String ExScreenshotsFolder, Boolean IsQueueItem, String RobotFail, Dictionary<String, Object> CustomParams)
         {
             this.TransactionNumber = TransactionNumber;
             this.RetryNumber = RetryNumber;
@@ -70,27 +81,5 @@ namespace NErlichman.Framework.Controller
             this.CustomParams = CustomParams;
         }
 
-        private void Initialize(Int32 TransactionNumber, Int32 RetryNumber, Int32 InitRetryNumber, Int32 ContinuousRetryNumber, FrameworkFolders Folders, Boolean IsQueueItem, String RobotFail, Dictionary<String, Object> CustomParams)
-        {
-            this.TransactionNumber = TransactionNumber;
-            this.RetryNumber = RetryNumber;
-            this.InitRetryNumber = InitRetryNumber;
-            this.ContinuousRetryNumber = ContinuousRetryNumber;
-            this.Folders = Folders;
-            this.IsQueueItem = IsQueueItem;
-            this.RobotFail = RobotFail;
-            this.CustomParams = CustomParams;
-        }
-
-        private void Initialize(Int32 TransactionNumber, Int32 RetryNumber, Int32 InitRetryNumber, Int32 ContinuousRetryNumber, Boolean IsQueueItem, String RobotFail, Dictionary<String, Object> CustomParams)
-        {
-            this.TransactionNumber = TransactionNumber;
-            this.RetryNumber = RetryNumber;
-            this.InitRetryNumber = InitRetryNumber;
-            this.ContinuousRetryNumber = ContinuousRetryNumber;
-            this.IsQueueItem = IsQueueItem;
-            this.RobotFail = RobotFail;
-            this.CustomParams = CustomParams;
-        }
     }
 }
