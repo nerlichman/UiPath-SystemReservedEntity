@@ -11,12 +11,12 @@ using System.Runtime.Versioning;
 using System.Windows.Markup;
 using NErlichman.Framework.Controller;
 
-namespace NErlichman.Framework.Activities
+namespace NErlichman.Framework
 {
     [DisplayName("Build Framework Folders")]
     [Description("Build Framework Folders")]
     [Designer(typeof(Design.BuildFrameworkFoldersDesigner))]
-    public sealed class BuildFrameworkFolders : CodeActivity<FrameworkFolders>
+    public sealed class BuildFrameworkFolders : CodeActivity
     {
         #region Properties
 
@@ -35,12 +35,14 @@ namespace NErlichman.Framework.Activities
         [DefaultValue("Exceptions_Screenshots")]
         [Category("Optional Fields")]
         public InArgument<String> ExScreenshotsFolder { get; set; }
-
+        [RequiredArgument]
+        [Category("Output")]
+        public OutArgument<FrameworkFolders> FrameworkFolders { get; set; }
         #endregion
 
-        protected override FrameworkFolders Execute(CodeActivityContext context)
+        protected override void Execute(CodeActivityContext context)
         {
-            return new FrameworkFolders(InputFolder.Get(context) ?? "Data\\Input", OutputFolder.Get(context) ?? "Data\\Output", TempFolder.Get(context) ?? "Data\\Temp", ReportsFolder.Get(context) ?? "Data\\Reports", ExScreenshotsFolder.Get(context) ?? "Exceptions_Screenshots");
+            FrameworkFolders.Set(context, new FrameworkFolders(InputFolder.Get(context) ?? "Data\\Input", OutputFolder.Get(context) ?? "Data\\Output", TempFolder.Get(context) ?? "Data\\Temp", ReportsFolder.Get(context) ?? "Data\\Reports", ExScreenshotsFolder.Get(context) ?? "Exceptions_Screenshots"));
         }
 
     }

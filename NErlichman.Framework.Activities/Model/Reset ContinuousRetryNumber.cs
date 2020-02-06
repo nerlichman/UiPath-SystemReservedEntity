@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using NErlichman.Framework.Controller;
 
-namespace NErlichman.Framework.Activities
+namespace NErlichman.Framework
 {
     [DisplayName("Reset ContinuousRetryNumber")]
     [Description("Reset ContinuousRetryNumber")]

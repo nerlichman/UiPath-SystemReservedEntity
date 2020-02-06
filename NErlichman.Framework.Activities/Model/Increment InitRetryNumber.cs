@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using NErlichman.Framework.Controller;
 
-namespace NErlichman.Framework.Activities
+namespace NErlichman.Framework
 {
     [DisplayName("Increment InitRetryNumber")]
     [Description("Increment InitRetryNumber")]

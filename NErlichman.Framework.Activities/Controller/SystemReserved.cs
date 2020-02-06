@@ -69,7 +69,7 @@ namespace NErlichman.Framework.Controller
                      ReportsFolder ?? Folders.ReportsFolder, ExScreenshotsFolder ?? Folders.ExScreenshotsFolder, IsQueueItem, RobotFail ?? this.RobotFail, CustomParams ?? this.CustomParams);
         }
 
-            private void Initialize(Int32 TransactionNumber, Int32 RetryNumber, Int32 InitRetryNumber, Int32 ContinuousRetryNumber, String InputFolder, String OutputFolder, String TempFolder, String ReportsFolder, String ExScreenshotsFolder, Boolean IsQueueItem, String RobotFail, Dictionary<String, Object> CustomParams)
+        private void Initialize(Int32 TransactionNumber, Int32 RetryNumber, Int32 InitRetryNumber, Int32 ContinuousRetryNumber, String InputFolder, String OutputFolder, String TempFolder, String ReportsFolder, String ExScreenshotsFolder, Boolean IsQueueItem, String RobotFail, Dictionary<String, Object> CustomParams)
         {
             this.TransactionNumber = TransactionNumber;
             this.RetryNumber = RetryNumber;
