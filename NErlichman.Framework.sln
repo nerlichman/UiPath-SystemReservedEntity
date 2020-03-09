@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NErlichman.Framework.Activities", "NErlichman.Framework.Activities\NErlichman.Framework.Activities.csproj", "{785E15AE-CD6A-4277-9509-FE544026C98F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{785E15AE-CD6A-4277-9509-FE544026C98F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{785E15AE-CD6A-4277-9509-FE544026C98F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{785E15AE-CD6A-4277-9509-FE544026C98F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{785E15AE-CD6A-4277-9509-FE544026C98F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {453905E4-28B7-449A-98FF-BED1A40B84A3}
+	EndGlobalSection
+EndGlobal
