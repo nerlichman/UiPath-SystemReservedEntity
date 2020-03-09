@@ -1,0 +1,96 @@
+﻿<sap:ActivityDesigner x:Class="NErlichman.Framework.Design.BuildFrameworkFoldersDesigner"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+    xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  >
+    <sap:ActivityDesigner.Resources>
+        <!--<ResourceDictionary>
+            <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
+        </ResourceDictionary>-->
+        <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
+        <DataTemplate x:Key="Colapsed">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" Foreground="#FF6D6D6D">Double-click to view</TextBlock>
+        </DataTemplate>
+        <DataTemplate x:Key="Expanded">
+            <Grid Width="300">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Center" >Input Folder</TextBlock>
+                <sapv:ExpressionTextBox
+                    Grid.Column="1"
+                    Margin="5"
+                    Height="25"
+                    HintText="Enter a VB expression"
+                    Expression="{Binding ModelItem.InputFolder, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:String}" />
+                <TextBlock VerticalAlignment="Center" Grid.Row="1">Output Folder</TextBlock>
+                <sapv:ExpressionTextBox
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Margin="5"
+                    Height="25"
+                    HintText="Enter a VB expression"
+                    Expression="{Binding ModelItem.OutputFolder, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:String}" />
+                <TextBlock VerticalAlignment="Center" Grid.Row="2">Temp Folder</TextBlock>
+                <sapv:ExpressionTextBox
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Margin="5"
+                    Height="25"
+                    HintText="Enter a VB expression"
+                    Expression="{Binding ModelItem.TempFolder, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:String}" />
+                <TextBlock VerticalAlignment="Center" Grid.Row="3">Reports Folder</TextBlock>
+                <sapv:ExpressionTextBox
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Margin="5"
+                    Height="25"
+                    HintText="Enter a VB expression"
+                    Expression="{Binding ModelItem.ReportsFolder, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:String}"/>
+                <TextBlock VerticalAlignment="Center" Grid.Row="4">ExScreenshots Folder</TextBlock>
+                <sapv:ExpressionTextBox
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Margin="5"
+                    Height="25"
+                    HintText="Enter a VB expression"
+                    Expression="{Binding ModelItem.ExScreenshotsFolder, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:String}"/>
+            </Grid>
+        </DataTemplate>
+        <Style x:Key="ExpandOrCollapsedStyle"
+               TargetType="{x:Type ContentPresenter}">
+            <Setter Property="ContentTemplate"
+                    Value="{DynamicResource Colapsed}"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ShowExpanded}" Value="true">
+                    <Setter Property="ContentTemplate" Value="{DynamicResource Expanded}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </sap:ActivityDesigner.Resources>
+    <Grid>
+        <ContentPresenter Style="{DynamicResource ExpandOrCollapsedStyle}" Content="{Binding}"/>
+    </Grid>
+</sap:ActivityDesigner>

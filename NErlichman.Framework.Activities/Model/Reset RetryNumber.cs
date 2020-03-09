@@ -1,11 +1,13 @@
 ﻿using System.Activities;
 using System.ComponentModel;
+using NErlichman.Framework.Controller;
 
-namespace NErlichman.Framework.Activities
+namespace NErlichman.Framework
 {
-    [DisplayName("Reset ContinuousRetryNumber")]
-    [Description("Reset ContinuousRetryNumber")]
-    public class ResetContinuousRetryNumber : NativeActivity
+    [DisplayName("Reset RetryNumber")]
+    [Description("Reset RetryNumber")]
+    [Designer(typeof(Design.SystemResevedInputDesigner))]
+    public class ResetRetryNumber : NativeActivity
     {
         #region Properties
 
@@ -26,12 +28,7 @@ namespace NErlichman.Framework.Activities
         /// <returns></returns>
         protected override void Execute(NativeActivityContext context)
         {
-            var sysRes = SystemReserved.Get(context);
-
-            sysRes.ContinuousRetryNumber = 0;
-
-            SystemReserved.Set(context, sysRes);
-
+            SystemReserved.Get(context).RetryNumber = 0;
         }
 
         #endregion

@@ -1,10 +1,12 @@
 ﻿using System.Activities;
 using System.ComponentModel;
+using NErlichman.Framework.Controller;
 
-namespace NErlichman.Framework.Activities
+namespace NErlichman.Framework
 {
     [DisplayName("Increment TransactionNumber")]
     [Description("Increment TransactionNumber")]
+    [Designer(typeof(Design.SystemResevedInputDesigner))]
     public class IncrementTransactionNumber : NativeActivity
     {
         #region Properties
@@ -26,12 +28,7 @@ namespace NErlichman.Framework.Activities
         /// <returns></returns>
         protected override void Execute(NativeActivityContext context)
         {
-            var sysRes = SystemReserved.Get(context);
-
-            sysRes.TransactionNumber += 1;
-
-            SystemReserved.Set(context, sysRes);
-
+            SystemReserved.Get(context).TransactionNumber += 1;
         }
 
         #endregion

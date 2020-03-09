@@ -1,10 +1,12 @@
 ﻿using System.Activities;
 using System.ComponentModel;
+using NErlichman.Framework.Controller;
 
-namespace NErlichman.Framework.Activities
+namespace NErlichman.Framework
 {
     [DisplayName("Increment ContinuousRetryNumber")]
     [Description("Increment ContinuousRetryNumber")]
+    [Designer(typeof(Design.SystemResevedInputDesigner))]
     public class IncrementContinuousRetryNumber : NativeActivity
     {
         #region Properties
@@ -26,12 +28,7 @@ namespace NErlichman.Framework.Activities
         /// <returns></returns>
         protected override void Execute(NativeActivityContext context)
         {
-            var sysRes = SystemReserved.Get(context);
-
-            sysRes.ContinuousRetryNumber += 1;
-
-            SystemReserved.Set(context, sysRes);
-
+            SystemReserved.Get(context).ContinuousRetryNumber += 1;
         }
 
         #endregion

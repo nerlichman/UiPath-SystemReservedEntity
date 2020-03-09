@@ -1,0 +1,96 @@
+﻿<sap:ActivityDesigner x:Class="NErlichman.Framework.Design.BuildSystemReservedDesigner"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+    xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  >
+    <sap:ActivityDesigner.Resources>
+        <!--<ResourceDictionary>
+            <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
+        </ResourceDictionary>-->
+        <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
+        <DataTemplate x:Key="Collapsed">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontStyle="Italic" Foreground="#FF6D6D6D">Double-click to view</TextBlock>
+        </DataTemplate>
+        <DataTemplate x:Key="Expanded">
+            <Grid Width="300">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Center" >TransactionNumber</TextBlock>
+                <sapv:ExpressionTextBox
+                    Grid.Column="1"
+                    HintText="Enter a VB expression"
+                    Height="25"
+                    Expression="{Binding ModelItem.TransactionNumber, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:Int32}" 
+                    Margin="5"/>
+                <TextBlock VerticalAlignment="Center" Grid.Row="1">RetryNumber</TextBlock>
+                <sapv:ExpressionTextBox
+                    HintText="Enter a VB expression"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Height="25"
+                    Expression="{Binding ModelItem.RetryNumber, ConverterParameter=In, Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:Int32}" 
+                    Margin="5"/>
+                <TextBlock VerticalAlignment="Center" Grid.Row="2">InitRetryNumber</TextBlock>
+                <sapv:ExpressionTextBox
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    HintText="Enter a VB expression"
+                    Height="25"
+                    Expression="{Binding ModelItem.InitRetryNumber, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:Int32}" 
+                    Margin="5"/>
+                <TextBlock VerticalAlignment="Center" Grid.Row="3">ContinuousRetryNumber</TextBlock>
+                <sapv:ExpressionTextBox
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    HintText="Enter a VB expression" 
+                    Height="25"
+                    Expression="{Binding ModelItem.ContinuousRetryNumber, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:Int32}" 
+                    Margin="5"/>
+                <TextBlock VerticalAlignment="Center" Grid.Row="4">IsQueueItem</TextBlock>
+                <sapv:ExpressionTextBox
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    HintText="Enter a VB expression"
+                    Height="25"
+                    Expression="{Binding ModelItem.IsQueueItem, ConverterParameter=In , Converter={StaticResource ArgumentToExpressionConverter}, Mode=TwoWay}"
+                    OwnerActivity="{Binding ModelItem}"
+                    ExpressionType="{x:Type s:Boolean}" 
+                    Margin="5"/>
+            </Grid>
+        </DataTemplate>
+        <Style x:Key="ExpandOrCollapsedStyle"
+               TargetType="{x:Type ContentPresenter}">
+            <Setter Property="ContentTemplate"
+                    Value="{DynamicResource Collapsed}"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ShowExpanded}" Value="true">
+                    <Setter Property="ContentTemplate" Value="{DynamicResource Expanded}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </sap:ActivityDesigner.Resources>
+    <Grid>
+        <ContentPresenter Style="{DynamicResource ExpandOrCollapsedStyle}" Content="{Binding}" />
+    </Grid>
+</sap:ActivityDesigner>

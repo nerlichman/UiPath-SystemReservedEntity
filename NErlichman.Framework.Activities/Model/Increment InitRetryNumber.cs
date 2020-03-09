@@ -1,10 +1,12 @@
 ﻿using System.Activities;
 using System.ComponentModel;
+using NErlichman.Framework.Controller;
 
-namespace NErlichman.Framework.Activities
+namespace NErlichman.Framework
 {
     [DisplayName("Increment InitRetryNumber")]
     [Description("Increment InitRetryNumber")]
+    [Designer(typeof(Design.SystemResevedInputDesigner))]
     public class IncrementInitRetryNumber : NativeActivity
     {
         #region Properties
@@ -26,12 +28,7 @@ namespace NErlichman.Framework.Activities
         /// <returns></returns>
         protected override void Execute(NativeActivityContext context)
         {
-            var sysRes = SystemReserved.Get(context);
-
-            sysRes.InitRetryNumber += 1;
-
-            SystemReserved.Set(context, sysRes);
-
+            SystemReserved.Get(context).InitRetryNumber += 1;
         }
 
         #endregion
