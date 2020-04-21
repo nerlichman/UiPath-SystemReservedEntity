@@ -17,5 +17,4 @@
     <DrawingBrush x:Key="AddIcon" Drawing="{StaticResource SimpleDrawingGroup}" />
     <DrawingBrush x:Key="MultiplyIcon" Drawing="{StaticResource SimpleDrawingGroup}" />
 
-
 </ResourceDictionary>
