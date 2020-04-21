@@ -15,8 +15,8 @@ This package was generated using the UiPath VS Extension.</Description>
     <Authors>Nicolas Erlichman</Authors>
     <Company></Company>
     <Copyright>@ 2020 Nicolas Erlichman</Copyright>
-    <PackageTags>UiPath Activit𝗒 Framework</PackageTags>
-    <PackageProjectUrl>https://docs.uipath.com/integrations/docs/how-to-create-activities</PackageProjectUrl>
+    <PackageTags>UiPath Activit𝗒 Framework Class</PackageTags>
+    <PackageProjectUrl>https://github.com/nerlichman/UiPath-SystemReservedEntity</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/NuGet/Samples/master/PackageIconNuspecExample/icon.png</PackageIconUrl>
     <PackageIcon>packageIcon.png</PackageIcon>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -26,10 +26,10 @@ This package was generated using the UiPath VS Extension.</Description>
   </PropertyGroup>
   <!-- Package Versions -->
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <PackageVersion>0.1.0-beta-$([System.DateTime]::UtcNow.ToString(MMddHmmss))</PackageVersion>
+    <PackageVersion>1.0.0-beta-$([System.DateTime]::UtcNow.ToString(MMddHmmss))</PackageVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-    <PackageVersion>0.1.0</PackageVersion>
+    <PackageVersion>1.0.0</PackageVersion>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Designers\BuildFrameworkFoldersDesigner.xaml" />
