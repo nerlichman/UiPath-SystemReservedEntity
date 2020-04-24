@@ -88,7 +88,8 @@ namespace NErlichman.SystemReserved.Activities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The path of the directory to be used for exception screenshots..
+        ///   Looks up a localized string similar to The path of the directory to be used for exception screenshots.
+        ///The default value is &apos;Exceptions_Screenshots&apos;.
         /// </summary>
         public static string BuildFrameworkFolders_ExScreenshotsFolder_Description {
             get {
@@ -125,6 +126,7 @@ namespace NErlichman.SystemReserved.Activities.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to The path of the directory to be used for input files.
+        ///The default value is &apos;Data\Input&apos;.
         /// </summary>
         public static string BuildFrameworkFolders_InputFolder_Description {
             get {
@@ -143,6 +145,7 @@ namespace NErlichman.SystemReserved.Activities.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to The path of the directory to be used for output files.
+        ///The default value is &apos;Data\Output&apos;.
         /// </summary>
         public static string BuildFrameworkFolders_OutputFolder_Description {
             get {
@@ -161,6 +164,7 @@ namespace NErlichman.SystemReserved.Activities.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to The path of the directory to be used for report files.
+        ///The default value is &apos;Data\Reports&apos;.
         /// </summary>
         public static string BuildFrameworkFolders_ReportsFolder_Description {
             get {
@@ -179,6 +183,7 @@ namespace NErlichman.SystemReserved.Activities.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to The path of the directory to be used for temporal files.
+        ///The default value is &apos;Data\Temp&apos;.
         /// </summary>
         public static string BuildFrameworkFolders_TempFolder_Description {
             get {
@@ -574,7 +579,7 @@ namespace NErlichman.SystemReserved.Activities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reset Coninuous Retry Number.
+        ///   Looks up a localized string similar to Reset Continuous Retry Number.
         /// </summary>
         public static string ResetConinuousRetryNumber_DisplayName {
             get {

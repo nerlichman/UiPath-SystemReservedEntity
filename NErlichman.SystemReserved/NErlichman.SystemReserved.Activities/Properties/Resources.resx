@@ -407,7 +407,7 @@ The default value is 'Exceptions_Screenshots'</value>
     <comment>property description</comment>
   </data>
   <data name="ResetConinuousRetryNumber_DisplayName" xml:space="preserve">
-    <value>Reset Coninuous Retry Number</value>
+    <value>Reset Continuous Retry Number</value>
     <comment>activity name</comment>
   </data>
   <data name="ResetConinuousRetryNumber_Description" xml:space="preserve">
