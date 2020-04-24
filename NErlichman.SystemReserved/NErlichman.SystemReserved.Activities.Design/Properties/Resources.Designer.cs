@@ -10,8 +10,8 @@
 
 namespace NErlichman.SystemReserved.Activities.Design.Properties {
     using System;
-
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -23,15 +23,15 @@ namespace NErlichman.SystemReserved.Activities.Design.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
-
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -45,7 +45,7 @@ namespace NErlichman.SystemReserved.Activities.Design.Properties {
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -59,16 +59,16 @@ namespace NErlichman.SystemReserved.Activities.Design.Properties {
                 resourceCulture = value;
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to NErlichman.SystemReserved.
+        ///   Looks up a localized string similar to SystemReserved.
         /// </summary>
         public static string Category {
             get {
                 return ResourceManager.GetString("Category", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Collection.
         /// </summary>
@@ -77,7 +77,7 @@ namespace NErlichman.SystemReserved.Activities.Design.Properties {
                 return ResourceManager.GetString("Collection", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Do.
         /// </summary>
@@ -86,7 +86,7 @@ namespace NErlichman.SystemReserved.Activities.Design.Properties {
                 return ResourceManager.GetString("Do", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Double-click to view.
         /// </summary>
@@ -95,7 +95,7 @@ namespace NErlichman.SystemReserved.Activities.Design.Properties {
                 return ResourceManager.GetString("DoubleClickToView", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Drop Activity Here.
         /// </summary>
@@ -104,7 +104,7 @@ namespace NErlichman.SystemReserved.Activities.Design.Properties {
                 return ResourceManager.GetString("DropActivityHere", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Editing.
         /// </summary>
