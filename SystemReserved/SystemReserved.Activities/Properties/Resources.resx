@@ -406,19 +406,19 @@ The default value is 'Exceptions_Screenshots'</value>
     <value>The SystemReserved entity</value>
     <comment>property description</comment>
   </data>
-  <data name="ResetConinuousRetryNumber_DisplayName" xml:space="preserve">
+  <data name="ResetContinuousRetryNumber_DisplayName" xml:space="preserve">
     <value>Reset Continuous Retry Number</value>
     <comment>activity name</comment>
   </data>
-  <data name="ResetConinuousRetryNumber_Description" xml:space="preserve">
+  <data name="ResetContinuousRetryNumber_Description" xml:space="preserve">
     <value>Resets ContinuousRetryNumber to 0</value>
     <comment>activity description</comment>
   </data>
-  <data name="ResetConinuousRetryNumber_SystemReserved_DisplayName" xml:space="preserve">
+  <data name="ResetContinuousRetryNumber_SystemReserved_DisplayName" xml:space="preserve">
     <value>SystemReserved</value>
     <comment>property name</comment>
   </data>
-  <data name="ResetConinuousRetryNumber_SystemReserved_Description" xml:space="preserve">
+  <data name="ResetContinuousRetryNumber_SystemReserved_Description" xml:space="preserve">
     <value>The SystemReserved entity</value>
     <comment>property description</comment>
   </data>

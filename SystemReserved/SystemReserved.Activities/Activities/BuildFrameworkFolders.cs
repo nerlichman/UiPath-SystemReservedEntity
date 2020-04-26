@@ -50,6 +50,9 @@ namespace SystemReserved.Activities {
         [LocalizedCategory(nameof(Resources.Output_Category))]
         public OutArgument<FrameworkFolders> FrameworkFolders { get; set; }
 
+        [LocalizedCategory(nameof(Resources.Output_Category))]
+        public OutArgument<Boolean> Result { get; set; }
+
         #endregion
 
 
@@ -73,16 +76,26 @@ namespace SystemReserved.Activities {
             var tempFolder = Temp.Get(context);
             var reportsFolder = Reports.Get(context);
             var exscreenshotsFolder = ExScreenshots.Get(context);
+            var result = true;
 
             ///////////////////////////
 
+            // Create FrameworkFolders entity
             var frameworkFolders = new FrameworkFolders(inputFolder, outputFolder, tempFolder, reportsFolder, exscreenshotsFolder);
+
+            // If argument has value, check if it was correctly assigned
+            if (inputFolder != null && frameworkFolders.Input != inputFolder) result = false;
+            if (outputFolder != null && frameworkFolders.Output != outputFolder) result = false;
+            if (tempFolder != null && frameworkFolders.Temp != tempFolder) result = false;
+            if (reportsFolder != null && frameworkFolders.Reports != reportsFolder) result = false;
+            if (exscreenshotsFolder != null && frameworkFolders.ExScreenshots != exscreenshotsFolder) result = false;
 
             ///////////////////////////
 
             // Outputs
             return (ctx) => {
                 FrameworkFolders.Set(ctx, frameworkFolders);
+                Result.Set(ctx, result);
             };
         }
 

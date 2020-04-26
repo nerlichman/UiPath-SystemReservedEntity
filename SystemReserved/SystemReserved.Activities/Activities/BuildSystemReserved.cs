@@ -19,32 +19,32 @@ namespace SystemReserved.Activities {
         [LocalizedCategory(nameof(Resources.Common_Category))]
         [LocalizedDisplayName(nameof(Resources.ContinueOnError_DisplayName))]
         [LocalizedDescription(nameof(Resources.ContinueOnError_Description))]
-        public override InArgument<bool> ContinueOnError { get; set; }
+        public override InArgument<bool> ContinueOnError { get; set; } = false;
 
         [LocalizedDisplayName(nameof(Resources.BuildSystemReserved_TransactionNumber_DisplayName))]
         [LocalizedDescription(nameof(Resources.BuildSystemReserved_TransactionNumber_Description))]
         [LocalizedCategory(nameof(Resources.Input_Category))]
-        public InArgument<int> TransactionNumber { get; set; }
+        public InArgument<int> TransactionNumber { get; set; } = 1;
 
         [LocalizedDisplayName(nameof(Resources.BuildSystemReserved_RetryNumber_DisplayName))]
         [LocalizedDescription(nameof(Resources.BuildSystemReserved_RetryNumber_Description))]
         [LocalizedCategory(nameof(Resources.Input_Category))]
-        public InArgument<int> RetryNumber { get; set; }
+        public InArgument<int> RetryNumber { get; set; } = 0;
 
         [LocalizedDisplayName(nameof(Resources.BuildSystemReserved_InitRetryNumber_DisplayName))]
         [LocalizedDescription(nameof(Resources.BuildSystemReserved_InitRetryNumber_Description))]
         [LocalizedCategory(nameof(Resources.Input_Category))]
-        public InArgument<int> InitRetryNumber { get; set; }
+        public InArgument<int> InitRetryNumber { get; set; } = 0;
 
         [LocalizedDisplayName(nameof(Resources.BuildSystemReserved_ContinuousRetryNumber_DisplayName))]
         [LocalizedDescription(nameof(Resources.BuildSystemReserved_ContinuousRetryNumber_Description))]
         [LocalizedCategory(nameof(Resources.Input_Category))]
-        public InArgument<int> ContinuousRetryNumber { get; set; }
+        public InArgument<int> ContinuousRetryNumber { get; set; } = 0;
 
         [LocalizedDisplayName(nameof(Resources.BuildSystemReserved_IsQueueItem_DisplayName))]
         [LocalizedDescription(nameof(Resources.BuildSystemReserved_IsQueueItem_Description))]
         [LocalizedCategory(nameof(Resources.Input_Category))]
-        public InArgument<bool> IsQueueItem { get; set; }
+        public InArgument<bool> IsQueueItem { get; set; } = true;
 
         [LocalizedDisplayName(nameof(Resources.BuildSystemReserved_Folders_DisplayName))]
         [LocalizedDescription(nameof(Resources.BuildSystemReserved_Folders_Description))]
@@ -60,6 +60,9 @@ namespace SystemReserved.Activities {
         [LocalizedDescription(nameof(Resources.BuildSystemReserved_SystemReserved_Description))]
         [LocalizedCategory(nameof(Resources.Output_Category))]
         public OutArgument<SystemReserved> SystemReserved { get; set; }
+
+        [LocalizedCategory(nameof(Resources.Output_Category))]
+        public OutArgument<Boolean> Result { get; set; }
 
         #endregion
 
@@ -92,16 +95,28 @@ namespace SystemReserved.Activities {
             var isQueueItem = IsQueueItem.Get(context);
             var folders = Folders.Get(context);
             var customParameters = CustomParameters.Get(context);
+            var result = true;
 
             ///////////////////////////
 
+            // Create SystemReserved entity
             var sysRes = new SystemReserved(transactionNumber, retryNumber, initRetryNumber, continuousRetryNumber, folders, isQueueItem, "", customParameters);
+
+            // If argument has value, check if it was correctly assigned
+            if (sysRes.TransactionNumber != transactionNumber) result = false;
+            if (sysRes.RetryNumber != retryNumber) result = false;
+            if (sysRes.InitRetryNumber != initRetryNumber) result = false;
+            if (sysRes.ContinuousRetryNumber != continuousRetryNumber) result = false;
+            if (sysRes.IsQueueItem != isQueueItem) result = false;
+            if (folders != null && sysRes.Folders != folders) result = false;
+            if (customParameters != null && sysRes.CustomParameters != customParameters) result = false;
 
             ///////////////////////////
 
             // Outputs
             return (ctx) => {
                 SystemReserved.Set(ctx, sysRes);
+                Result.Set(ctx, result);
             };
         }
 

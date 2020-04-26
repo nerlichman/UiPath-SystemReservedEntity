@@ -47,9 +47,9 @@ namespace SystemReserved.Activities.Design
             builder.AddCustomAttributes(typeof(ResetInitRetryNumber), new DesignerAttribute(typeof(ResetInitRetryNumberDesigner)));
             builder.AddCustomAttributes(typeof(ResetInitRetryNumber), new HelpKeywordAttribute(""));
 
-            builder.AddCustomAttributes(typeof(ResetConinuousRetryNumber), categoryAttribute);
-            builder.AddCustomAttributes(typeof(ResetConinuousRetryNumber), new DesignerAttribute(typeof(ResetConinuousRetryNumberDesigner)));
-            builder.AddCustomAttributes(typeof(ResetConinuousRetryNumber), new HelpKeywordAttribute(""));
+            builder.AddCustomAttributes(typeof(ResetContinuousRetryNumber), categoryAttribute);
+            builder.AddCustomAttributes(typeof(ResetContinuousRetryNumber), new DesignerAttribute(typeof(ResetContinuousRetryNumberDesigner)));
+            builder.AddCustomAttributes(typeof(ResetContinuousRetryNumber), new HelpKeywordAttribute(""));
 
 
             MetadataStore.AddAttributeTable(builder.CreateTable());

@@ -34,11 +34,9 @@ This package was generated using the UiPath VS Extension.</Description>
   <ItemGroup>
     <None Remove="Designers\BuildFrameworkFoldersDesigner.xaml" />
     <None Remove="Designers\BuildSystemReservedDesigner.xaml" />
-    <None Remove="Designers\IncrementContinuousRetryNumberDesigner.xaml" />
     <None Remove="Designers\IncrementInitRetryNumberDesigner.xaml" />
     <None Remove="Designers\IncrementRetryNumberDesigner.xaml" />
     <None Remove="Designers\IncrementTransactionNumberDesigner.xaml" />
-    <None Remove="Designers\ResetConinuousRetryNumberDesigner.xaml" />
     <None Remove="Designers\ResetInitRetryNumberDesigner.xaml" />
     <None Remove="Designers\ResetRetryNumberDesigner.xaml" />
   </ItemGroup>
@@ -93,9 +91,6 @@ This package was generated using the UiPath VS Extension.</Description>
     <Page Include="Designers\BuildSystemReservedDesigner.xaml">
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="Designers\IncrementContinuousRetryNumberDesigner.xaml">
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
     <Page Include="Designers\IncrementInitRetryNumberDesigner.xaml">
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
@@ -105,7 +100,10 @@ This package was generated using the UiPath VS Extension.</Description>
     <Page Include="Designers\IncrementTransactionNumberDesigner.xaml">
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="Designers\ResetConinuousRetryNumberDesigner.xaml">
+    <Page Include="Designers\IncrementContinuousRetryNumberDesigner.xaml">
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Designers\ResetContinuousRetryNumberDesigner.xaml">
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Designers\ResetInitRetryNumberDesigner.xaml">

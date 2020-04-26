@@ -26,6 +26,8 @@ namespace SystemReserved.Activities
         [LocalizedDescription(nameof(Resources.ResetInitRetryNumber_SystemReserved_Description))]
         [LocalizedCategory(nameof(Resources.Input_Category))]
         public InOutArgument<SystemReserved> SystemReserved { get; set; }
+        [LocalizedCategory(nameof(Resources.Output_Category))]
+        public OutArgument<Boolean> Result { get; set; }
 
         #endregion
 
@@ -52,16 +54,19 @@ namespace SystemReserved.Activities
         {
             // Inputs
             var systemreserved = SystemReserved.Get(context);
+            var result = false;
 
             ///////////////////////////
 
             systemreserved.ResetInitRetryNumber();
+            result = systemreserved.InitRetryNumber == 0;
 
             ///////////////////////////
 
             // Outputs
             return (ctx) => {
                 SystemReserved.Set(ctx, systemreserved);
+                Result.Set(ctx, result);
             };
         }
 
