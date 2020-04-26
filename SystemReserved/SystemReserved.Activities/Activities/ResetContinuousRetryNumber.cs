@@ -8,9 +8,9 @@ using UiPath.Shared.Activities.Localization;
 
 namespace SystemReserved.Activities
 {
-    [LocalizedDisplayName(nameof(Resources.ResetConinuousRetryNumber_DisplayName))]
-    [LocalizedDescription(nameof(Resources.ResetConinuousRetryNumber_Description))]
-    public class ResetConinuousRetryNumber : ContinuableAsyncCodeActivity
+    [LocalizedDisplayName(nameof(Resources.ResetContinuousRetryNumber_DisplayName))]
+    [LocalizedDescription(nameof(Resources.ResetContinuousRetryNumber_Description))]
+    public class ResetContinuousRetryNumber : ContinuableAsyncCodeActivity
     {
         #region Properties
 
@@ -22,17 +22,20 @@ namespace SystemReserved.Activities
         [LocalizedDescription(nameof(Resources.ContinueOnError_Description))]
         public override InArgument<bool> ContinueOnError { get; set; }
 
-        [LocalizedDisplayName(nameof(Resources.ResetConinuousRetryNumber_SystemReserved_DisplayName))]
-        [LocalizedDescription(nameof(Resources.ResetConinuousRetryNumber_SystemReserved_Description))]
+        [LocalizedDisplayName(nameof(Resources.ResetContinuousRetryNumber_SystemReserved_DisplayName))]
+        [LocalizedDescription(nameof(Resources.ResetContinuousRetryNumber_SystemReserved_Description))]
         [LocalizedCategory(nameof(Resources.Input_Category))]
         public InOutArgument<SystemReserved> SystemReserved { get; set; }
+
+        [LocalizedCategory(nameof(Resources.Output_Category))]
+        public OutArgument<Boolean> Result { get; set; }
 
         #endregion
 
 
         #region Constructors
 
-        public ResetConinuousRetryNumber()
+        public ResetContinuousRetryNumber()
         {
         }
 
@@ -52,16 +55,19 @@ namespace SystemReserved.Activities
         {
             // Inputs
             var systemreserved = SystemReserved.Get(context);
+            var result = false;
 
             ///////////////////////////
 
             systemreserved.ResetContinuousRetryNumberr();
+            result = systemreserved.ContinuousRetryNumber == 0;
 
             ///////////////////////////
 
             // Outputs
             return (ctx) => {
                 SystemReserved.Set(ctx, systemreserved);
+                Result.Set(ctx, result);
             };
         }
 

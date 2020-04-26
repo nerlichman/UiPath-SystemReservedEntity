@@ -572,36 +572,36 @@ namespace SystemReserved.Activities.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Resets ContinuousRetryNumber to 0.
         /// </summary>
-        public static string ResetConinuousRetryNumber_Description {
+        public static string ResetContinuousRetryNumber_Description {
             get {
-                return ResourceManager.GetString("ResetConinuousRetryNumber_Description", resourceCulture);
+                return ResourceManager.GetString("ResetContinuousRetryNumber_Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Reset Continuous Retry Number.
         /// </summary>
-        public static string ResetConinuousRetryNumber_DisplayName {
+        public static string ResetContinuousRetryNumber_DisplayName {
             get {
-                return ResourceManager.GetString("ResetConinuousRetryNumber_DisplayName", resourceCulture);
+                return ResourceManager.GetString("ResetContinuousRetryNumber_DisplayName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The SystemReserved entity.
         /// </summary>
-        public static string ResetConinuousRetryNumber_SystemReserved_Description {
+        public static string ResetContinuousRetryNumber_SystemReserved_Description {
             get {
-                return ResourceManager.GetString("ResetConinuousRetryNumber_SystemReserved_Description", resourceCulture);
+                return ResourceManager.GetString("ResetContinuousRetryNumber_SystemReserved_Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to SystemReserved.
         /// </summary>
-        public static string ResetConinuousRetryNumber_SystemReserved_DisplayName {
+        public static string ResetContinuousRetryNumber_SystemReserved_DisplayName {
             get {
-                return ResourceManager.GetString("ResetConinuousRetryNumber_SystemReserved_DisplayName", resourceCulture);
+                return ResourceManager.GetString("ResetContinuousRetryNumber_SystemReserved_DisplayName", resourceCulture);
             }
         }
         
