@@ -26,10 +26,10 @@ This package was generated using the UiPath VS Extension.</Description>
   </PropertyGroup>
   <!-- Package Versions -->
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <PackageVersion>1.0.0-beta-$([System.DateTime]::UtcNow.ToString(MMddHmmss))</PackageVersion>
+    <PackageVersion>1.0.1-beta-$([System.DateTime]::UtcNow.ToString(MMddHmmss))</PackageVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.1</PackageVersion>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Designers\BuildFrameworkFoldersDesigner.xaml" />

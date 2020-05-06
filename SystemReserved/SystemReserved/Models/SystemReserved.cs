@@ -12,10 +12,10 @@ namespace SystemReserved {
         #region Properties
 
         public Int32 TransactionNumber { get; private set; } = 1;
-        public Int32 RetryNumber { get; private set; } = 0;
+        public Int32 RetryNumber { get; set; } = 0;
         public Int32 InitRetryNumber { get; private set; } = 0;
         public Int32 ContinuousRetryNumber { get; private set; } = 0;
-        public Boolean IsQueueItem { get; private set; } = false;
+        public Boolean IsQueueItem { get; set; } = false;
         public String RobotFail { get; set; } = "";
         public FrameworkFolders Folders { get; set; } = new FrameworkFolders();
         public Dictionary<String, Object> CustomParameters { get; set; } = new Dictionary<String, Object>();
